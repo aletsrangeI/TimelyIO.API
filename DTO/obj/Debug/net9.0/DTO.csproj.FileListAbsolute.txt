@@ -1,0 +1,15 @@
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\bin\Debug\net9.0\DTO.deps.json
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\bin\Debug\net9.0\DTO.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\bin\Debug\net9.0\DTO.pdb
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.AssemblyInfoInputs.cache
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.AssemblyInfo.cs
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.csproj.CoreCompileInputs.cache
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\refint\DTO.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.pdb
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\ref\DTO.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\bin\Debug\net9.0\Domain.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\bin\Debug\net9.0\Domain.pdb
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.csproj.AssemblyReference.cache
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.csproj.Up2Date

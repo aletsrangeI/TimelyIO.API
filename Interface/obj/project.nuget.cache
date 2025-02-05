@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "L0N6f6KzgKo=",
+  "success": true,
+  "projectFilePath": "C:\\Proyectos\\TimelyIO\\TimelyIO.API\\Interface\\Interface.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alecs\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512"
+  ],
+  "logs": []
+}
