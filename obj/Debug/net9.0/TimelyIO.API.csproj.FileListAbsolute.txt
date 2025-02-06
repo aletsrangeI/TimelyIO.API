@@ -1,4 +1,0 @@
-C:\Proyectos\TimelyIO\TimelyIO.API\obj\Debug\net9.0\TimelyIO.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Proyectos\TimelyIO\TimelyIO.API\obj\Debug\net9.0\TimelyIO.API.AssemblyInfoInputs.cache
-C:\Proyectos\TimelyIO\TimelyIO.API\obj\Debug\net9.0\TimelyIO.API.AssemblyInfo.cs
-C:\Proyectos\TimelyIO\TimelyIO.API\obj\Debug\net9.0\TimelyIO.API.csproj.CoreCompileInputs.cache
