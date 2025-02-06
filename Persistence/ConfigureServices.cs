@@ -28,6 +28,7 @@ public static class ConfigureServices
         services.AddScoped<ICatalogoRepository, CatalogoRepository>();
         services.AddScoped<IContenidoCatalogoRepository, ContenidoCatalogoRepository>();
         services.AddScoped<IFormFieldRepository, FormFieldRepository>();
+        services.AddScoped<IPersonaRepository, PersonaRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }

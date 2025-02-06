@@ -23,14 +23,15 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Catalogo> Catalogos { get; set; }
     public DbSet<ContenidoCatalogo> ContenidoCatalogos { get; set; }
-
     public DbSet<FormField> FormFields { get; set; }
+    public DbSet<Persona> Personas { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Catalogo>().ToTable("Catalogos");
         modelBuilder.Entity<ContenidoCatalogo>().ToTable("ContenidoCatalogos");
         modelBuilder.Entity<FormField>().ToTable("FormFields");
+        modelBuilder.Entity<Persona>().ToTable("Personas");
 
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
@@ -104,7 +105,7 @@ public class ApplicationDbContext : DbContext
                 Nombre = "loginscreen",
                 Descripcion = "Pantalla de login",
                 Opcional = "",
-                
+
                 Active = true,
                 CreatedBy = "System",
                 Created = DateTime.SpecifyKind(new DateTime(2025, 1, 29, 0, 0, 0), DateTimeKind.Utc),
@@ -117,7 +118,7 @@ public class ApplicationDbContext : DbContext
                 Nombre = "register",
                 Descripcion = "Pantalla de registar",
                 Opcional = "",
-                
+
                 Active = true,
                 CreatedBy = "System",
                 Created = DateTime.SpecifyKind(new DateTime(2025, 1, 29, 0, 0, 0), DateTimeKind.Utc),
@@ -130,7 +131,7 @@ public class ApplicationDbContext : DbContext
                 Nombre = "Dashboard",
                 Descripcion = "Pantalla de inicio",
                 Opcional = "",
-                
+
                 Active = true,
                 CreatedBy = "System",
                 Created = DateTime.SpecifyKind(new DateTime(2025, 1, 29, 0, 0, 0), DateTimeKind.Utc),
@@ -158,7 +159,7 @@ public class ApplicationDbContext : DbContext
             .HasOne<FormField>()
             .WithMany()
             .HasForeignKey(f => f.CatalogoId)
-            .IsRequired(false);  // <-- Permite valores nulos
+            .IsRequired(false); // <-- Permite valores nulos
 
         modelBuilder.Entity<FormField>().HasData(
             new FormField
@@ -169,7 +170,7 @@ public class ApplicationDbContext : DbContext
                 Placeholder = "Email/Usuario",
                 Label = "Email/Usuario",
                 Value = " ",
-                
+
                 FormularioId = 1,
                 Order = 0,
                 Active = true,
@@ -186,7 +187,7 @@ public class ApplicationDbContext : DbContext
                 Placeholder = "Password",
                 Label = "Password",
                 Value = " ",
-                
+
                 FormularioId = 1,
                 Order = 1,
                 Active = true,
@@ -203,7 +204,7 @@ public class ApplicationDbContext : DbContext
                 Placeholder = "Email/Usuario",
                 Label = "Email/Usuario",
                 Value = " ",
-                
+
                 FormularioId = 2,
                 Order = 0,
                 Active = true,
@@ -220,7 +221,7 @@ public class ApplicationDbContext : DbContext
                 Placeholder = "Password",
                 Label = "Password",
                 Value = " ",
-                
+
                 FormularioId = 2,
                 Order = 1,
                 Active = true,
@@ -237,7 +238,7 @@ public class ApplicationDbContext : DbContext
                 Placeholder = "Confirmar Password",
                 Label = "Confirmar Password",
                 Value = " ",
-                
+
                 FormularioId = 2,
                 Order = 2,
                 Active = true,
@@ -254,7 +255,7 @@ public class ApplicationDbContext : DbContext
                 Placeholder = "Nombre",
                 Label = "Nombre",
                 Value = " ",
-                
+
                 FormularioId = 2,
                 Order = 3,
                 Active = true,
@@ -271,7 +272,7 @@ public class ApplicationDbContext : DbContext
                 Placeholder = "Apellido",
                 Label = "Apellido",
                 Value = " ",
-                
+
                 FormularioId = 2,
                 Order = 4,
                 Active = true,
@@ -281,6 +282,15 @@ public class ApplicationDbContext : DbContext
                 LastModified = DateTime.SpecifyKind(new DateTime(2025, 1, 29, 0, 0, 0), DateTimeKind.Utc)
             }
         );
+
+        modelBuilder.Entity<Persona>()
+            .Property(e => e.Metadata)
+            .HasColumnType("jsonb")
+            .HasConversion(
+                v => JsonSerializer.Serialize(v, (JsonSerializerOptions?)null), // Convierte a JSON
+                v => JsonSerializer.Deserialize<Dictionary<string, object>>(v,
+                    (JsonSerializerOptions?)null) // Convierte desde JSON
+            );
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
