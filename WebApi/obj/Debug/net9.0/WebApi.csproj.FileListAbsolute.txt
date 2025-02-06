@@ -220,3 +220,4 @@ C:\Proyectos\TimelyIO\TimelyIO.API\WebApi\obj\Debug\net9.0\WebApi.genruntimeconf
 C:\Proyectos\TimelyIO\TimelyIO.API\WebApi\obj\Debug\net9.0\ref\WebApi.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\WebApi\bin\Debug\net9.0\WebApi.xml
 C:\Proyectos\TimelyIO\TimelyIO.API\WebApi\bin\Debug\net9.0\Scalar.AspNetCore.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\WebApi\obj\Debug\net9.0\WebApi.sourcelink.json

@@ -13,3 +13,4 @@ C:\Proyectos\TimelyIO\TimelyIO.API\DTO\bin\Debug\net9.0\Domain.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\DTO\bin\Debug\net9.0\Domain.pdb
 C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.csproj.AssemblyReference.cache
 C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.csproj.Up2Date
+C:\Proyectos\TimelyIO\TimelyIO.API\DTO\obj\Debug\net9.0\DTO.sourcelink.json

@@ -17,3 +17,4 @@ C:\Proyectos\TimelyIO\TimelyIO.API\Interface\obj\Debug\net9.0\Interface.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Interface\obj\Debug\net9.0\refint\Interface.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Interface\obj\Debug\net9.0\Interface.pdb
 C:\Proyectos\TimelyIO\TimelyIO.API\Interface\obj\Debug\net9.0\ref\Interface.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\Interface\obj\Debug\net9.0\Interface.sourcelink.json

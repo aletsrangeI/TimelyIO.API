@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using UseCases.Catalogos;
 using UseCases.ContenidoCatalogos;
 using UseCases.FormFields;
+using UseCases.Personas;
 using Validator;
 
 namespace UseCases;
@@ -18,12 +19,15 @@ public static class ConfigureServices
         services.AddScoped<ICatalogoApplication, CatalogoApplication>();
         services.AddScoped<IContenidoCatalogoApplication, ContenidoCatalogoApplication>();
         services.AddScoped<IFormFieldApplication, FormFieldApplication>();
+        services.AddScoped<IPersonaApplication, PersonaApplication>();
 
 
         // validators
         services.AddTransient<CatalogoDTOValidator>();
         services.AddTransient<ContenidoCatalogoDTOValidator>();
         services.AddTransient<FormFieldDTOValidator>();
+        services.AddTransient<PersonaDTOValidator>();
+        services.AddTransient<PersonaLoginDTOValidator>();
 
         return services;
     }

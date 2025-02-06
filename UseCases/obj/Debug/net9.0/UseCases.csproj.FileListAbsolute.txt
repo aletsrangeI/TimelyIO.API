@@ -21,3 +21,4 @@ C:\Proyectos\TimelyIO\TimelyIO.API\UseCases\obj\Debug\net9.0\UseCases.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\UseCases\obj\Debug\net9.0\refint\UseCases.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\UseCases\obj\Debug\net9.0\UseCases.pdb
 C:\Proyectos\TimelyIO\TimelyIO.API\UseCases\obj\Debug\net9.0\ref\UseCases.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\UseCases\obj\Debug\net9.0\UseCases.sourcelink.json

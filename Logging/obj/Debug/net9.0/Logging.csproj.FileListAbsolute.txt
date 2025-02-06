@@ -13,3 +13,4 @@ C:\Proyectos\TimelyIO\TimelyIO.API\Logging\obj\Debug\net9.0\Logging.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Logging\obj\Debug\net9.0\refint\Logging.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Logging\obj\Debug\net9.0\Logging.pdb
 C:\Proyectos\TimelyIO\TimelyIO.API\Logging\obj\Debug\net9.0\ref\Logging.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\Logging\obj\Debug\net9.0\Logging.sourcelink.json
