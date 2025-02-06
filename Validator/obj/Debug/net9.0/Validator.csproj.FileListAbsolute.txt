@@ -15,3 +15,4 @@ C:\Proyectos\TimelyIO\TimelyIO.API\Validator\obj\Debug\net9.0\Validator.pdb
 C:\Proyectos\TimelyIO\TimelyIO.API\Validator\obj\Debug\net9.0\ref\Validator.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Validator\bin\Debug\net9.0\Domain.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Validator\bin\Debug\net9.0\Domain.pdb
+C:\Proyectos\TimelyIO\TimelyIO.API\Validator\obj\Debug\net9.0\Validator.sourcelink.json

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TimelyIO.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a27c8390628ab51495a4ee72ae073380a09c440")]
 [assembly: System.Reflection.AssemblyProductAttribute("TimelyIO.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TimelyIO.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

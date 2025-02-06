@@ -19,3 +19,4 @@ C:\Proyectos\TimelyIO\TimelyIO.API\Persistence\obj\Debug\net9.0\Persistence.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Persistence\obj\Debug\net9.0\refint\Persistence.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Persistence\obj\Debug\net9.0\Persistence.pdb
 C:\Proyectos\TimelyIO\TimelyIO.API\Persistence\obj\Debug\net9.0\ref\Persistence.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\Persistence\obj\Debug\net9.0\Persistence.sourcelink.json

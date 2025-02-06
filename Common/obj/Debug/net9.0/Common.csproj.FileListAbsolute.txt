@@ -10,3 +10,4 @@ C:\Proyectos\TimelyIO\TimelyIO.API\Common\obj\Debug\net9.0\Common.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Common\obj\Debug\net9.0\refint\Common.dll
 C:\Proyectos\TimelyIO\TimelyIO.API\Common\obj\Debug\net9.0\Common.pdb
 C:\Proyectos\TimelyIO\TimelyIO.API\Common\obj\Debug\net9.0\ref\Common.dll
+C:\Proyectos\TimelyIO\TimelyIO.API\Common\obj\Debug\net9.0\Common.sourcelink.json
