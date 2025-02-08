@@ -121,14 +121,13 @@ public class ContenidoCatalogoApplication : IContenidoCatalogoApplication
         return response;
     }
 
-    public Response<IEnumerable<ContenidoCatalogoDTO>> getAll()
+    public Response<List<ContenidoCatalogoDTO>> getAll()
     {
-        var response = new Response<IEnumerable<ContenidoCatalogoDTO>>();
-
+        var response = new Response<List<ContenidoCatalogoDTO>>();
         try
         {
-            var contenidoCatalogos = _unitOfWork.ContenidoCatalogos.GetAll();
-            response.Data = _mapper.Map<IEnumerable<ContenidoCatalogoDTO>>(contenidoCatalogos);
+            var contenidoCatalogos = _unitOfWork.ContenidoCatalogos.GetAll().ToList();
+            response.Data = _mapper.Map<List<ContenidoCatalogoDTO>>(contenidoCatalogos);
 
             if (response.Data != null)
             {
@@ -145,14 +144,14 @@ public class ContenidoCatalogoApplication : IContenidoCatalogoApplication
         return response;
     }
 
-    public Response<IEnumerable<ContenidoCatalogoDTO>> GetAll()
+    public Response<List<ContenidoCatalogoDTO>> GetAll()
     {
-        var response = new Response<IEnumerable<ContenidoCatalogoDTO>>();
+        var response = new Response<List<ContenidoCatalogoDTO>>();
 
         try
         {
             var contenidoCatalogos = _unitOfWork.ContenidoCatalogos.GetAll();
-            response.Data = _mapper.Map<IEnumerable<ContenidoCatalogoDTO>>(contenidoCatalogos);
+            response.Data = _mapper.Map<List<ContenidoCatalogoDTO>>(contenidoCatalogos);
 
             if (response.Data != null)
             {
@@ -169,14 +168,14 @@ public class ContenidoCatalogoApplication : IContenidoCatalogoApplication
         return response;
     }
 
-    public ResponsePagination<IEnumerable<ContenidoCatalogoDTO>> GetAllWithPagination(int page, int pageSize)
+    public ResponsePagination<List<ContenidoCatalogoDTO>> GetAllWithPagination(int page, int pageSize)
     {
-        var response = new ResponsePagination<IEnumerable<ContenidoCatalogoDTO>>();
+        var response = new ResponsePagination<List<ContenidoCatalogoDTO>>();
 
         try
         {
             var contenidoCatalogos = _unitOfWork.ContenidoCatalogos.GetAllWithPagination(page, pageSize);
-            response.Data = _mapper.Map<IEnumerable<ContenidoCatalogoDTO>>(contenidoCatalogos);
+            response.Data = _mapper.Map<List<ContenidoCatalogoDTO>>(contenidoCatalogos);
 
             if (response.Data != null)
             {
@@ -216,14 +215,14 @@ public class ContenidoCatalogoApplication : IContenidoCatalogoApplication
         return response;
     }
 
-    public Response<IEnumerable<ContenidoCatalogoDTO>> GetContenidoCatalogoByCatalogoId(int id)
+    public Response<List<ContenidoCatalogoDTO>> GetContenidoCatalogoByCatalogoId(int id)
     {
-        var response = new Response<IEnumerable<ContenidoCatalogoDTO>>();
+        var response = new Response<List<ContenidoCatalogoDTO>>();
 
         try
         {
             var contenidoCatalogos = _unitOfWork.ContenidoCatalogos.GetContenidoCatalogoByCatalogoId(id);
-            response.Data = _mapper.Map<IEnumerable<ContenidoCatalogoDTO>>(contenidoCatalogos);
+            response.Data = _mapper.Map<List<ContenidoCatalogoDTO>>(contenidoCatalogos);
 
             if (response.Data != null)
             {
@@ -339,14 +338,14 @@ public class ContenidoCatalogoApplication : IContenidoCatalogoApplication
         return response;
     }
 
-    public async Task<Response<IEnumerable<ContenidoCatalogoDTO>>> GetAllAsync()
+    public async Task<Response<List<ContenidoCatalogoDTO>>> GetAllAsync()
     {
-        var response = new Response<IEnumerable<ContenidoCatalogoDTO>>();
+        var response = new Response<List<ContenidoCatalogoDTO>>();
 
         try
         {
             var contenidoCatalogos = await _unitOfWork.ContenidoCatalogos.GetAllAsync();
-            response.Data = _mapper.Map<IEnumerable<ContenidoCatalogoDTO>>(contenidoCatalogos);
+            response.Data = _mapper.Map<List<ContenidoCatalogoDTO>>(contenidoCatalogos);
 
             if (response.Data != null)
             {
@@ -363,15 +362,15 @@ public class ContenidoCatalogoApplication : IContenidoCatalogoApplication
         return response;
     }
 
-    public async Task<ResponsePagination<IEnumerable<ContenidoCatalogoDTO>>> GetAllWithPaginationAsync(int page,
+    public async Task<ResponsePagination<List<ContenidoCatalogoDTO>>> GetAllWithPaginationAsync(int page,
         int pageSize)
     {
-        var response = new ResponsePagination<IEnumerable<ContenidoCatalogoDTO>>();
+        var response = new ResponsePagination<List<ContenidoCatalogoDTO>>();
 
         try
         {
             var contenidoCatalogos = await _unitOfWork.ContenidoCatalogos.GetAllWithPaginationAsync(page, pageSize);
-            response.Data = _mapper.Map<IEnumerable<ContenidoCatalogoDTO>>(contenidoCatalogos);
+            response.Data = _mapper.Map<List<ContenidoCatalogoDTO>>(contenidoCatalogos);
 
             if (response.Data != null)
             {
@@ -411,14 +410,14 @@ public class ContenidoCatalogoApplication : IContenidoCatalogoApplication
         return response;
     }
 
-    public async Task<Response<IEnumerable<ContenidoCatalogoDTO>>> GetContenidoCatalogoByCatalogoIdAsync(int id)
+    public async Task<Response<List<ContenidoCatalogoDTO>>> GetContenidoCatalogoByCatalogoIdAsync(int id)
     {
-        var response = new Response<IEnumerable<ContenidoCatalogoDTO>>();
+        var response = new Response<List<ContenidoCatalogoDTO>>();
 
         try
         {
             var contenidoCatalogos = await _unitOfWork.ContenidoCatalogos.GetContenidoCatalogoByCatalogoIdAsync(id);
-            response.Data = _mapper.Map<IEnumerable<ContenidoCatalogoDTO>>(contenidoCatalogos);
+            response.Data = _mapper.Map<List<ContenidoCatalogoDTO>>(contenidoCatalogos);
 
             if (response.Data != null)
             {

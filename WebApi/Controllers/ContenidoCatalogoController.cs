@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
-[Authorize]
+[AllowAnonymous]
 [Route("api/[controller]")]
 [ApiController]
 public class ContenidoCatalogoController : Controller

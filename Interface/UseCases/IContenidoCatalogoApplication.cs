@@ -15,13 +15,13 @@ public interface IContenidoCatalogoApplication
 
     Response<ContenidoCatalogoDTO> Get(int id);
 
-    Response<IEnumerable<ContenidoCatalogoDTO>> getAll();
+    Response<List<ContenidoCatalogoDTO>> getAll();
 
-    ResponsePagination<IEnumerable<ContenidoCatalogoDTO>> GetAllWithPagination(int page, int pageSize);
+    ResponsePagination<List<ContenidoCatalogoDTO>> GetAllWithPagination(int page, int pageSize);
 
     Response<int> Count();
 
-    Response<IEnumerable<ContenidoCatalogoDTO>> GetContenidoCatalogoByCatalogoId(int id);
+    Response<List<ContenidoCatalogoDTO>> GetContenidoCatalogoByCatalogoId(int id);
 
     #endregion
 
@@ -35,13 +35,13 @@ public interface IContenidoCatalogoApplication
 
     Task<Response<ContenidoCatalogoDTO>> GetAsync(int id);
 
-    Task<Response<IEnumerable<ContenidoCatalogoDTO>>> GetAllAsync();
+    Task<Response<List<ContenidoCatalogoDTO>>> GetAllAsync();
 
-    Task<ResponsePagination<IEnumerable<ContenidoCatalogoDTO>>> GetAllWithPaginationAsync(int page, int pageSize);
+    Task<ResponsePagination<List<ContenidoCatalogoDTO>>> GetAllWithPaginationAsync(int page, int pageSize);
 
     Task<Response<int>> CountAsync();
 
-    Task<Response<IEnumerable<ContenidoCatalogoDTO>>> GetContenidoCatalogoByCatalogoIdAsync(int id);
+    Task<Response<List<ContenidoCatalogoDTO>>> GetContenidoCatalogoByCatalogoIdAsync(int id);
 
     #endregion
 }

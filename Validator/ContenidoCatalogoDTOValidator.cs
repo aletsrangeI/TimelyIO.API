@@ -1,9 +1,10 @@
 using DTO;
+using DTO.ContenidoCatalogo;
 using FluentValidation;
 
 namespace Validator;
 
-public class ContenidoCatalogoDTOValidator : AbstractValidator<CatalogoDTO>
+public class ContenidoCatalogoDTOValidator : AbstractValidator<ContenidoCatalogoDTO>
 {
     public ContenidoCatalogoDTOValidator()
     {
