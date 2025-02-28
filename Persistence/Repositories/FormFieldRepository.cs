@@ -69,7 +69,7 @@ public class FormFieldRepository : IFormFieldRepository
         var result = (from ff in _dbContext.FormFields
             join cc in _dbContext.ContenidoCatalogos
                 on ff.FormularioId equals cc.Id
-            where ff.FormularioId == id
+            where ff.FormularioId == id && ff.Active == true
             select ff).OrderBy(a => a.Order).ToList();
 
         foreach (var formField in result)

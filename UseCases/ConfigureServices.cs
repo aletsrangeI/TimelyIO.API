@@ -28,6 +28,7 @@ public static class ConfigureServices
         services.AddTransient<FormFieldDTOValidator>();
         services.AddTransient<PersonaDTOValidator>();
         services.AddTransient<PersonaLoginDTOValidator>();
+        services.AddTransient<PersonaRegisterDTOValidator>();
 
         return services;
     }

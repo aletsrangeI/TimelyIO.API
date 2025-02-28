@@ -16,5 +16,6 @@ public class MappingsProfile : Profile
         CreateMap<FormField, FormFieldDTO>().ReverseMap();
         CreateMap<Persona, PersonaDTO>().ReverseMap();
         CreateMap<Persona, PersonaLoginDTO>().ReverseMap();
+        CreateMap<Persona, PersonaRegisterDTO>().ReverseMap();
     }
 }
