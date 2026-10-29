@@ -95,6 +95,132 @@ namespace Persistence.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Domain.Entities.Cita", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("boolean");
+
+                    b.Property<int?>("CanceladoPor")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("CostoTotal")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("FechaHoraFinConBufferUtc")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("FechaHoraFinUtc")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("FechaHoraInicioUtc")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("MontoAnticipoRequerido")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("MotivoCancelacion")
+                        .HasColumnType("text");
+
+                    b.Property<int>("NegocioId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ProfesionalId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ServicioId")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("TokenAccesoCliente")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("NegocioId");
+
+                    b.HasIndex("ProfesionalId");
+
+                    b.HasIndex("ServicioId");
+
+                    b.ToTable("Citas", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("NegocioId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("NombreCompleto")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NotasGenerales")
+                        .HasColumnType("text");
+
+                    b.Property<string>("TelefonoWhatsapp")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NegocioId");
+
+                    b.ToTable("Clientes", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Entities.ContenidoCatalogo", b =>
                 {
                     b.Property<int>("Id")
@@ -207,6 +333,54 @@ namespace Persistence.Migrations
                             Nombre = "Dashboard",
                             Opcional = ""
                         });
+                });
+
+            modelBuilder.Entity("Domain.Entities.ExpedienteCliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("CodigoExpediente")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("FechaAperturaUtc")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("NegocioId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteId")
+                        .IsUnique();
+
+                    b.HasIndex("NegocioId");
+
+                    b.ToTable("ExpedientesClientes", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.FormField", b =>
@@ -410,6 +584,67 @@ namespace Persistence.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Domain.Entities.Negocio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DatosBancariosSPEI")
+                        .HasColumnType("text");
+
+                    b.Property<TimeSpan>("HorarioAtencionFin")
+                        .HasColumnType("interval");
+
+                    b.Property<TimeSpan>("HorarioAtencionInicio")
+                        .HasColumnType("interval");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("MensajeFueraHorario")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NombreComercial")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("PoliticaCancelacionHoras")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TelefonoWhatsappOficial")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ZonaHorariaId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Negocios", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Entities.Persona", b =>
                 {
                     b.Property<int>("Id")
@@ -477,6 +712,165 @@ namespace Persistence.Migrations
                     b.ToTable("Personas", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entities.Profesional", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("ColorIdentificador")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FotoUrl")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("NegocioId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("NombreCompleto")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TituloProfesional")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("UsuarioId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NegocioId");
+
+                    b.ToTable("Profesionales", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Servicio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("BufferMinutosPosterior")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("DiasParaReenganche")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("DuracionMinutos")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("MontoAnticipo")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("NegocioId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("PrecioTotal")
+                        .HasColumnType("numeric");
+
+                    b.Property<bool>("RequiereAnticipo")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NegocioId");
+
+                    b.ToTable("Servicios", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Cita", b =>
+                {
+                    b.HasOne("Domain.Entities.Cliente", "Cliente")
+                        .WithMany("Citas")
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Negocio", "Negocio")
+                        .WithMany("Citas")
+                        .HasForeignKey("NegocioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Profesional", "Profesional")
+                        .WithMany("Citas")
+                        .HasForeignKey("ProfesionalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Servicio", "Servicio")
+                        .WithMany("Citas")
+                        .HasForeignKey("ServicioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Negocio");
+
+                    b.Navigation("Profesional");
+
+                    b.Navigation("Servicio");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Cliente", b =>
+                {
+                    b.HasOne("Domain.Entities.Negocio", "Negocio")
+                        .WithMany("Clientes")
+                        .HasForeignKey("NegocioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Negocio");
+                });
+
             modelBuilder.Entity("Domain.Entities.ContenidoCatalogo", b =>
                 {
                     b.HasOne("Domain.Entities.Catalogo", "Catalogo")
@@ -486,6 +880,25 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Catalogo");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ExpedienteCliente", b =>
+                {
+                    b.HasOne("Domain.Entities.Cliente", "Cliente")
+                        .WithOne("Expediente")
+                        .HasForeignKey("Domain.Entities.ExpedienteCliente", "ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Negocio", "Negocio")
+                        .WithMany()
+                        .HasForeignKey("NegocioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Negocio");
                 });
 
             modelBuilder.Entity("Domain.Entities.FormField", b =>
@@ -518,6 +931,56 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Type");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Profesional", b =>
+                {
+                    b.HasOne("Domain.Entities.Negocio", "Negocio")
+                        .WithMany("Profesionales")
+                        .HasForeignKey("NegocioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Negocio");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Servicio", b =>
+                {
+                    b.HasOne("Domain.Entities.Negocio", "Negocio")
+                        .WithMany("Servicios")
+                        .HasForeignKey("NegocioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Negocio");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Cliente", b =>
+                {
+                    b.Navigation("Citas");
+
+                    b.Navigation("Expediente");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Negocio", b =>
+                {
+                    b.Navigation("Citas");
+
+                    b.Navigation("Clientes");
+
+                    b.Navigation("Profesionales");
+
+                    b.Navigation("Servicios");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Profesional", b =>
+                {
+                    b.Navigation("Citas");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Servicio", b =>
+                {
+                    b.Navigation("Citas");
                 });
 #pragma warning restore 612, 618
         }

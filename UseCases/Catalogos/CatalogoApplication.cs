@@ -1,9 +1,9 @@
-using AutoMapper;
 using Common;
 using Domain.Entities;
 using DTO;
 using Interface.Persistence;
 using Interface.UseCases;
+using UseCases.Common.Mapping;
 using Validator;
 
 namespace UseCases.Catalogos;
@@ -11,15 +11,13 @@ namespace UseCases.Catalogos;
 public class CatalogoApplication : ICatalogoApplication
 {
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
     private readonly CatalogoDTOValidator _validationRules;
     private readonly IAppLogger<CatalogoApplication> _logger;
 
-    public CatalogoApplication(IUnitOfWork unitOfWork, IMapper mapper, CatalogoDTOValidator validationRules,
+    public CatalogoApplication(IUnitOfWork unitOfWork, CatalogoDTOValidator validationRules,
         IAppLogger<CatalogoApplication> logger)
     {
         _unitOfWork = unitOfWork;
-        _mapper = mapper;
         _validationRules = validationRules;
         _logger = logger;
     }
@@ -32,7 +30,7 @@ public class CatalogoApplication : ICatalogoApplication
 
         try
         {
-            var catalogo = _mapper.Map<Catalogo>(catalogoDto);
+            var catalogo = catalogoDto.ToEntity();
             response.Data = _unitOfWork.Catalogos.Insert(catalogo);
 
             if (response.Data)
@@ -56,7 +54,7 @@ public class CatalogoApplication : ICatalogoApplication
 
         try
         {
-            var catalogo = _mapper.Map<Catalogo>(catalogoDto);
+            var catalogo = catalogoDto.ToEntity();
             response.Data = _unitOfWork.Catalogos.Update(catalogo);
 
             if (response.Data)
@@ -104,7 +102,7 @@ public class CatalogoApplication : ICatalogoApplication
         try
         {
             var catalogo = _unitOfWork.Catalogos.Get(id);
-            response.Data = _mapper.Map<CatalogoDTO>(catalogo);
+            response.Data = catalogo?.ToDto();
 
             if (response.Data != null)
             {
@@ -128,7 +126,7 @@ public class CatalogoApplication : ICatalogoApplication
         try
         {
             var catalogos = _unitOfWork.Catalogos.GetAll();
-            response.Data = _mapper.Map<IEnumerable<CatalogoDTO>>(catalogos);
+            response.Data = catalogos?.Select(c => c.ToDto()).ToList();
 
             if (response.Data != null)
             {
@@ -152,7 +150,7 @@ public class CatalogoApplication : ICatalogoApplication
         try
         {
             var catalogos = _unitOfWork.Catalogos.GetAllWithPagination(page, pageSize);
-            response.Data = _mapper.Map<IEnumerable<CatalogoDTO>>(catalogos);
+            response.Data = catalogos?.Select(c => c.ToDto()).ToList();
 
             if (response.Data != null)
             {
@@ -202,7 +200,7 @@ public class CatalogoApplication : ICatalogoApplication
 
         try
         {
-            var catalogo = _mapper.Map<Catalogo>(catalogoDto);
+            var catalogo = catalogoDto.ToEntity();
             response.Data = await _unitOfWork.Catalogos.InsertAsync(catalogo);
 
             if (response.Data)
@@ -226,7 +224,7 @@ public class CatalogoApplication : ICatalogoApplication
 
         try
         {
-            var catalogo = _mapper.Map<Catalogo>(catalogoDto);
+            var catalogo = catalogoDto.ToEntity();
             response.Data = await _unitOfWork.Catalogos.UpdateAsync(catalogo);
 
             if (response.Data)
@@ -274,7 +272,7 @@ public class CatalogoApplication : ICatalogoApplication
         try
         {
             var catalogo = await _unitOfWork.Catalogos.GetAsync(id);
-            response.Data = _mapper.Map<CatalogoDTO>(catalogo);
+            response.Data = catalogo?.ToDto();
 
             if (response.Data != null)
             {
@@ -298,7 +296,7 @@ public class CatalogoApplication : ICatalogoApplication
         try
         {
             var catalogos = await _unitOfWork.Catalogos.GetAllAsync();
-            response.Data = _mapper.Map<IEnumerable<CatalogoDTO>>(catalogos);
+            response.Data = catalogos?.Select(c => c.ToDto()).ToList();
 
             if (response.Data != null)
             {
@@ -322,7 +320,7 @@ public class CatalogoApplication : ICatalogoApplication
         try
         {
             var catalogos = await _unitOfWork.Catalogos.GetAllWithPaginationAsync(page, pageSize);
-            response.Data = _mapper.Map<IEnumerable<CatalogoDTO>>(catalogos);
+            response.Data = catalogos?.Select(c => c.ToDto()).ToList();
 
             if (response.Data != null)
             {

@@ -1,9 +1,9 @@
-using AutoMapper;
 using Common;
 using Domain.Entities;
 using DTO.Persona;
 using Interface.Persistence;
 using Interface.UseCases;
+using UseCases.Common.Mapping;
 using Validator;
 
 namespace UseCases.Personas;
@@ -11,13 +11,13 @@ namespace UseCases.Personas;
 public class PersonaApplication : IPersonaApplication
 {
     private readonly IAppLogger<PersonaApplication> _logger;
-    private readonly IMapper _mapper;
+    private readonly IAppMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly PersonaLoginDTOValidator _loginValidationRules;
     private readonly PersonaDTOValidator _personaValidationRules;
     private readonly PersonaRegisterDTOValidator _personaRegisterValidationRules;
     
-    public PersonaApplication(IAppLogger<PersonaApplication> logger, IMapper mapper, IUnitOfWork unitOfWork,
+    public PersonaApplication(IAppLogger<PersonaApplication> logger, IAppMapper mapper, IUnitOfWork unitOfWork,
         PersonaLoginDTOValidator loginValidationRules, PersonaDTOValidator personaValidationRules, PersonaRegisterDTOValidator personaRegisterValidationRules)
     {
         _logger = logger;

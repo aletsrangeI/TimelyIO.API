@@ -1,4 +1,4 @@
-﻿using Interface.Persistence;
+using Interface.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +29,12 @@ public static class ConfigureServices
         services.AddScoped<IContenidoCatalogoRepository, ContenidoCatalogoRepository>();
         services.AddScoped<IFormFieldRepository, FormFieldRepository>();
         services.AddScoped<IPersonaRepository, PersonaRepository>();
+        services.AddScoped<INegocioRepository, NegocioRepository>();
+        services.AddScoped<IProfesionalRepository, ProfesionalRepository>();
+        services.AddScoped<IServicioRepository, ServicioRepository>();
+        services.AddScoped<IClienteRepository, ClienteRepository>();
+        services.AddScoped<ICitaRepository, CitaRepository>();
+        services.AddScoped<IExpedienteClienteRepository, ExpedienteClienteRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }

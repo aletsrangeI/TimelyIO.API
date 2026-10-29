@@ -12,7 +12,10 @@ public static class FeatureExtensions
             .SetIsOriginAllowed(_ => true) // Permitir cualquier origen
             .AllowAnyHeader()
             .AllowAnyMethod()));
-        services.AddControllers().AddJsonOptions(options =>
+        services.AddControllers(options =>
+        {
+            options.SuppressAsyncSuffixInActionNames = false;
+        }).AddJsonOptions(options =>
         {
             options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
         });

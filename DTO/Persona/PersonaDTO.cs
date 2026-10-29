@@ -12,4 +12,5 @@ public class PersonaDTO
     public int TypeId { get; set; }
     public Dictionary<string, object> Metadata { get; set; } = new();
     public string Token { get; set; }
+    public string RefreshToken { get; set; } // New refresh token property
 }

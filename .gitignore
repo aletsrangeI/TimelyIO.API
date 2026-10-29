@@ -41,3 +41,9 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+# Database and local logs
+*.db
+*.db-shm
+*.db-wal
+migrations_script.sql
+

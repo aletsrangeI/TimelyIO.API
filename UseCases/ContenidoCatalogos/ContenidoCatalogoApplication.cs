@@ -1,9 +1,9 @@
-using AutoMapper;
 using Common;
 using Domain.Entities;
 using DTO.ContenidoCatalogo;
 using Interface.Persistence;
 using Interface.UseCases;
+using UseCases.Common.Mapping;
 using Validator;
 
 namespace UseCases.ContenidoCatalogos;
@@ -11,11 +11,11 @@ namespace UseCases.ContenidoCatalogos;
 public class ContenidoCatalogoApplication : IContenidoCatalogoApplication
 {
     private readonly IAppLogger<ContenidoCatalogoApplication> _logger;
-    private readonly IMapper _mapper;
+    private readonly IAppMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly ContenidoCatalogoDTOValidator _validationRules;
 
-    public ContenidoCatalogoApplication(IAppLogger<ContenidoCatalogoApplication> logger, IMapper mapper,
+    public ContenidoCatalogoApplication(IAppLogger<ContenidoCatalogoApplication> logger, IAppMapper mapper,
         IUnitOfWork unitOfWork, ContenidoCatalogoDTOValidator validationRules)
     {
         _logger = logger;

@@ -1,9 +1,9 @@
-using AutoMapper;
 using Common;
 using Domain.Entities;
 using DTO.FormField;
 using Interface.Persistence;
 using Interface.UseCases;
+using UseCases.Common.Mapping;
 using Validator;
 
 namespace UseCases.FormFields;
@@ -11,11 +11,11 @@ namespace UseCases.FormFields;
 public class FormFieldApplication : IFormFieldApplication
 {
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
+    private readonly IAppMapper _mapper;
     private readonly FormFieldDTOValidator _validationRules;
     private readonly IAppLogger<FormFieldApplication> _logger;
 
-    public FormFieldApplication(IUnitOfWork unitOfWork, IMapper mapper, FormFieldDTOValidator validationRules,
+    public FormFieldApplication(IUnitOfWork unitOfWork, IAppMapper mapper, FormFieldDTOValidator validationRules,
         IAppLogger<FormFieldApplication> logger)
     {
         _unitOfWork = unitOfWork;

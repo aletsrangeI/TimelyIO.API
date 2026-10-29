@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "TimelyIO",
+  "classifications": ["Web", "WebAPI", "Clean Architecture", "TimelyIO"],
+  "identity": "TimelyIO.Backend.Template",
+  "name": "TimelyIO Clean Architecture WebAPI",
+  "shortName": "timely-backend",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "TimelyIO.API",
+  "preferNameDirectory": true
+}

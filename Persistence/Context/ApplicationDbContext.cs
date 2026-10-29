@@ -25,6 +25,12 @@ public class ApplicationDbContext : DbContext
     public DbSet<ContenidoCatalogo> ContenidoCatalogos { get; set; }
     public DbSet<FormField> FormFields { get; set; }
     public DbSet<Persona> Personas { get; set; }
+    public DbSet<Negocio> Negocios { get; set; }
+    public DbSet<Profesional> Profesionales { get; set; }
+    public DbSet<Servicio> Servicios { get; set; }
+    public DbSet<Cliente> Clientes { get; set; }
+    public DbSet<Cita> Citas { get; set; }
+    public DbSet<ExpedienteCliente> ExpedientesClientes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -32,6 +38,12 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<ContenidoCatalogo>().ToTable("ContenidoCatalogos");
         modelBuilder.Entity<FormField>().ToTable("FormFields");
         modelBuilder.Entity<Persona>().ToTable("Personas");
+        modelBuilder.Entity<Negocio>().ToTable("Negocios");
+        modelBuilder.Entity<Profesional>().ToTable("Profesionales");
+        modelBuilder.Entity<Servicio>().ToTable("Servicios");
+        modelBuilder.Entity<Cliente>().ToTable("Clientes");
+        modelBuilder.Entity<Cita>().ToTable("Citas");
+        modelBuilder.Entity<ExpedienteCliente>().ToTable("ExpedientesClientes");
 
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);

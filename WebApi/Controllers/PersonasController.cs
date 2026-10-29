@@ -39,6 +39,7 @@ public class PersonasController : Controller
         if (response.Data == null) return NotFound(response.Message);
 
         response.Data.Token = BuildToken(response);
+        response.Data.RefreshToken = BuildRefreshToken(response);
         return Ok(response);
     }
 
@@ -126,6 +127,7 @@ public class PersonasController : Controller
         if (response.Data == null) return NotFound(response.Message);
 
         response.Data.Token = BuildToken(response);
+        response.Data.RefreshToken = BuildRefreshToken(response);
         return Ok(response);
     }
 
@@ -187,6 +189,25 @@ public class PersonasController : Controller
 
     #endregion
 
+    private string BuildRefreshToken(Response<PersonaDTO> personaDTO)
+    {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+        var tokenDescriptor = new SecurityTokenDescriptor
+        {
+            Subject = new ClaimsIdentity(new Claim[]
+            {
+                new(ClaimTypes.Name, personaDTO.Data.Id.ToString())
+            }),
+            Expires = DateTime.UtcNow.AddDays(7), // long-lived refresh token
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+            Issuer = _appSettings.Issuer,
+            Audience = _appSettings.Audience
+        };
+        var token = tokenHandler.CreateToken(tokenDescriptor);
+        var tokenString = tokenHandler.WriteToken(token);
+        return tokenString;
+    }
     private string BuildToken(Response<PersonaDTO> personaDTO)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -197,10 +218,8 @@ public class PersonasController : Controller
             {
                 new(ClaimTypes.Name, personaDTO.Data.Id.ToString())
             }),
-
             Expires = DateTime.UtcNow.AddHours(1),
-            SigningCredentials =
-                new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
             Issuer = _appSettings.Issuer,
             Audience = _appSettings.Audience
         };
@@ -208,4 +227,7 @@ public class PersonasController : Controller
         var tokenString = tokenHandler.WriteToken(token);
         return tokenString;
     }
+
+
+
 }
